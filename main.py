@@ -1,16 +1,20 @@
-# This is a sample Python script.
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
+import uuid
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from starlette import status
 
+app = FastAPI(
+    title="API's Task 5 MLops",
+    version="0.0.1"
+)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+@app.post("/api/v1/register/")
+async def create_user(username: str, name: str):
+    return {
+        "username": username,
+        "email": name,
+        "Password": str,
+        "message": "The user has been created successfully",
+        "status_Code": 201
+    }
