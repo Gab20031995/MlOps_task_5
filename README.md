@@ -6,6 +6,10 @@ Tel: +506 85592422
 Horario: Aula 4, jueves de 4:00 PM a 7:00 PM (hora Costa Rica UTC-6)
 Valor: 5 puntos
 
+## Alumnos:
+- Gabriel Logan
+- Gabriel Corrales
+
 ## Instrucciones
 
 Desarrollar un programa en Python y con FastAPI o cualquier otro framework de APIs las
