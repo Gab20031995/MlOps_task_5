@@ -10,11 +10,11 @@ app = FastAPI(
 )
 
 @app.post("/api/v1/register/")
-async def create_user(username: str, name: str):
+async def create_user(username: str, name: str,password: str):
     return {
         "username": username,
         "email": name,
-        "Password": str,
+        "Password": password,
         "message": "The user has been created successfully",
         "status_Code": 201
     }
