@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from starlette import status
 from pydantic import BaseModel
+import uuid
+
 from typing import Dict, List
 
 app = FastAPI(
@@ -49,3 +51,9 @@ async def get_user(username: str):
             status_code=status.HTTP_404_NOT_FOUND
         )
 
+#Crear Tareas:
+@app.post("/api/v1/tasks/create")
+async def create_task(task: Task):
+    task_id = str(uuid.uuid4())
+    db_tasks[task_id] = task
+    return {"mensaje": "Tarea creada exitosamente", "task_id": task_id}
