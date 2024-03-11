@@ -57,3 +57,15 @@ async def create_task(task: Task):
     task_id = str(uuid.uuid4())
     db_tasks[task_id] = task
     return {"mensaje": "Tarea creada exitosamente", "task_id": task_id}
+
+
+#Listar Tareas por Usuario:
+@app.get("/api/v1/tasks/{username}")
+async def get_user_tasks(username: str):
+    tasks = []
+    for task_id, task in db_tasks.items():
+        if task.username == username:
+            tasks.append({"task_id": task_id, "title": task.title, "description": task.description, "status": task.status})
+    if not tasks:
+        raise HTTPException(status_code=404, detail="No se encontraron tareas para el usuario especificado")
+    return tasks
